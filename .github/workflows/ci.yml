@@ -40,14 +40,13 @@ jobs:
 
       - name: Create directory structure
         run: |
-          mkdir css
-          mkdir js
-          mkdir backend
-          mkdir partial
-          mkdir .github
-          mkdir .github
-          mkdir assets
-          mkdir docs
+          mkdir -p css
+          mkdir -p js
+          mkdir -p backend
+          mkdir -p partial
+          mkdir -p .github
+          mkdir -p assets
+          mkdir -p docs
 
       - name: Create HTML file
         run: |
