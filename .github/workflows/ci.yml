@@ -1,0 +1,210 @@
+name: CI
+
+# Controls when the workflow will run
+on:
+  # Triggers the workflow on push or pull request events but only for the "main" branch
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  build:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v4
+
+      # Runs a single command using the runners shell
+      - name: Run a one-line script
+        run: echo Hello, world!
+
+      # Runs a set of commands using the runners shell
+      - name: Run a multi-line script
+        run: |
+          echo Add other actions to build,
+          echo test, and deploy your project.
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+
+      - name: Create directory structure
+        run: |
+          mkdir -p css js backend partial .github assets docs
+          mkdir -p .github/workflows
+
+      - name: Create HTML file
+        run: |
+          cat > index.html <<EOF
+          <!DOCTYPE html>
+          <html lang="en">
+          <head>
+              <meta charset="UTF-8">
+              <meta name="viewport" content="width=device-width, initial-scale=1.0">
+              <title>Pero's Academy</title>
+              <link rel="stylesheet" href="css/main.css">
+              <link rel="stylesheet" href="css/footer.css">
+          </head>
+          <body>
+              <header>
+                  <h1>Pero's Academy</h1>
+                  <nav>
+                      <ul>
+                          <li><a href="#home">Home</a></li>
+                          <li><a href="#about">About</a></li>
+                          <li><a href="#courses">Courses</a></li>
+                          <li><a href="#contact">Contact</a></li>
+                      </ul>
+                  </nav>
+              </header>
+
+              <main>
+                  <section id="home">
+                      <h2>Welcome to Pero's Academy</h2>
+                      <p>Your journey to knowledge begins here.</p>
+                  </section>
+                  <section id="about">
+                      <h2>About Us</h2>
+                      <p>Learn more about our mission and values.</p>
+                  </section>
+                  <section id="courses">
+                      <h2>Our Courses</h2>
+                      <p>Explore the wide range of courses we offer.</p>
+                  </section>
+                  <section id="contact">
+                      <h2>Contact Us</h2>
+                      <form id="contactForm">
+                          <label for="name">Name:</label>
+                          <input type="text" id="name" name="name" required>
+                          <label for="email">Email:</label>
+                          <input type="email" id="email" name="email" required>
+                          <button type="submit">Submit</button>
+                      </form>
+                  </section>
+              </main>
+
+              <footer>
+                  <p>&copy; 2024 Pero's Academy. All rights reserved.</p>
+              </footer>
+
+              <script src="js/forms.js"></script>
+              <script src="js/search.js"></script>
+              <script src="js/navbar.js"></script>
+              <script src="js/dropdown.js"></script>
+          </body>
+          </html>
+          EOF
+
+      - name: Create CSS files
+        run: |
+          cat > css/main.css <<EOF
+          body {
+              font-family: Arial, sans-serif;
+              margin: 0;
+              padding: 0;
+          }
+
+          header, nav, section, footer {
+              padding: 20px;
+              margin: 10px;
+          }
+
+          header {
+              background-color: #333;
+              color: white;
+          }
+
+          nav ul {
+              list-style: none;
+              padding: 0;
+          }
+
+          nav ul li {
+              display: inline;
+              margin-right: 20px;
+          }
+
+          nav ul li a {
+              color: white;
+              text-decoration: none;
+          }
+
+          section {
+              background-color: #f4f4f4;
+              padding: 20px;
+              margin-bottom: 10px;
+          }
+
+          footer {
+              background-color: #333;
+              color: white;
+              text-align: center;
+              padding: 10px 0;
+          }
+
+          @media (max-width: 768px) {
+              nav ul li {
+                  display: block;
+                  margin: 0;
+              }
+
+              section {
+                  padding: 10px;
+              }
+          }
+          EOF
+
+          cat > css/footer.css <<EOF
+          footer {
+              background-color: #444;
+              color: #ccc;
+              text-align: center;
+              padding: 10px 0;
+          }
+          EOF
+
+      - name: Create JavaScript files
+        run: |
+          cat > js/forms.js <<EOF
+          document.getElementById('contactForm').addEventListener('submit', function(e) {
+              e.preventDefault();
+              alert('Form submitted successfully!');
+          });
+          EOF
+
+          cat > js/search.js <<EOF
+          // Placeholder for search functionality
+          function search() {
+              // Implement search logic
+          }
+          EOF
+
+          cat > js/navbar.js <<EOF
+          // Placeholder for navigation bar functionality
+          function toggleNav() {
+              // Implement toggle logic for responsive navigation
+          }
+          EOF
+
+          cat > js/dropdown.js <<EOF
+          // Placeholder for dropdown menu functionality
+          function toggleDropdown() {
+              // Implement dropdown logic
+          }
+          EOF
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./
