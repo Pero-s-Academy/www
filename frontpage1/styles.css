@@ -9,14 +9,24 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    background: url('assets/pexels-mo-eid-1268975-9888656.jpg') no-repeat center center fixed;
-    background-size: cover;
+    background: linear-gradient(to bottom, #FFFAE6 26%, #FFF6E9 33.33%, #FFF6E9 33.33%, #FFBF78 66.66%, #FFBF78 66.66%, #002379 100%);
 }
+
+.header-container,
+.search-container,
+.content,
+.community,
+.faculty,
+.footer {
+    background: transparent;
+}
+
+
 
 .navbar {
     width: 100%;
     background-color: rgba(51, 51, 51, 0); /* Initial background color with 0 opacity */
-    color: #fff;
+    color: #212121;
     position: fixed;
     top: 0;
     left: 0;
@@ -25,7 +35,7 @@ body {
 }
 
 .navbar.scrolled {
-    background-color: rgba(51, 51, 51, 0.9); /* Background color with 30% opacity when scrolled */
+    background-color: #FF9F66
 }
 
 .navbar .container {
@@ -50,7 +60,7 @@ body {
 }
 
 .navbar .nav-links li a {
-    color: #fff;
+    color: #212121;
     text-decoration: none;
     padding: 5px 10px;
     transition: color 0.4s;
@@ -89,8 +99,8 @@ body {
 .header-container {
     display: flex;
     width: 100%;
-    background-color: rgba(0, 0, 0, 0.5); /* Black background with 50% opacity */
-    color: white;
+    background-color:transparent;
+    color: #212121;
     padding: 20px 0;
     margin-top: 110px; /* Adjust as necessary to not overlap with the navbar */
 }
@@ -113,7 +123,8 @@ body {
     display: inline-block;
     padding: 10px 20px;
     border-radius: 25px;
-    background-color: #4692DD;
+    margin-top: 40px;
+    background-color: #FF9F66;
     color: black;
     text-decoration: none;
     transition: background-color 0.4s, color 0.4s;
