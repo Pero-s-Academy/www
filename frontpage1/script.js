@@ -1,3 +1,4 @@
+// Navbar scroll effect
 window.addEventListener('scroll', function() {
     const navbar = document.querySelector('.navbar');
     if (window.scrollY > 0) {
@@ -7,7 +8,7 @@ window.addEventListener('scroll', function() {
     }
 });
 
-// JavaScript for the image slider
+// Image slider functionality
 let currentSlide = 0;
 const slides = document.querySelectorAll('.slide');
 
@@ -28,7 +29,7 @@ setInterval(() => {
     showSlide(currentSlide + 1);
 }, 3000);
 
-// JavaScript for the hamburger menu
+// Hamburger menu functionality
 const hamburgerMenu = document.getElementById('hamburger-menu');
 const navLinks = document.querySelector('.nav-links');
 
@@ -97,3 +98,62 @@ style.innerHTML = `
     }
 `;
 document.head.appendChild(style);
+
+// Dropdown menu functionality
+function toggleDropdown(dropdownId) {
+    const dropdown = document.getElementById(dropdownId);
+    dropdown.classList.toggle('show');
+}
+
+// Close the dropdown if the user clicks outside of it
+window.onclick = function(event) {
+    if (!event.target.matches('.dropdown-btn')) {
+        const dropdowns = document.getElementsByClassName('dropdown-content');
+        for (let i = 0; i < dropdowns.length; i++) {
+            const openDropdown = dropdowns[i];
+            if (openDropdown.classList.contains('show')) {
+                openDropdown.classList.remove('show');
+            }
+        }
+    }
+};
+
+// Form submission with validation
+document.getElementById('contactForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    const email = document.getElementById('email').value;
+    const message = document.getElementById('message').value;
+
+    if (!validateEmail(email)) {
+        alert('Please enter a valid email address.');
+        return;
+    }
+
+    if (message.trim() === '') {
+        alert('Please enter a message.');
+        return;
+    }
+
+    alert('Form submitted successfully!');
+    this.submit(); // Uncomment this line to proceed with actual form submission
+});
+
+function validateEmail(email) {
+    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return re.test(email);
+}
+
+// Smooth scroll to sections
+document.querySelectorAll('.navbar .nav-links a').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+
+        const targetId = this.getAttribute('href').substring(1);
+        const targetElement = document.getElementById(targetId);
+
+        if (targetElement) {
+            targetElement.scrollIntoView({ behavior: 'smooth' });
+        }
+    });
+});
