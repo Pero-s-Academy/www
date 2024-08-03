@@ -1,105 +1,25 @@
+/* Reset */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+/* Body Styles */
 body {
     font-family: 'Roboto Mono', monospace;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
     background: linear-gradient(to bottom, #FFFAE6 26%, #FFF6E9 33.33%, #FFF6E9 33.33%, #FFBF78 66.66%, #FFBF78 66.66%, #002379 100%);
-}
-
-.header-container,
-.search-container,
-.content,
-.community,
-.faculty,
-.footer {
-    background: transparent;
-}
-
-
-
-.navbar {
-    width: 100%;
-    background-color: rgba(51, 51, 51, 0); /* Initial background color with 0 opacity */
     color: #212121;
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 1000;
-    transition: background-color 0.4s;
 }
 
-.navbar.scrolled {
-    background-color: #FF9F66
-}
-
-.navbar .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 20px;
-}
-
-.navbar .logo img {
-    width: 100px;
-    height: 90px;
-}
-
-.navbar .nav-links {
-    list-style: none;
-    display: flex;
-}
-
-.navbar .nav-links li {
-    margin: 0 10px;
-}
-
-.navbar .nav-links li a {
-    color: #212121;
-    text-decoration: none;
-    padding: 5px 10px;
-    transition: color 0.4s;
-}
-
-.navbar .nav-links li a:hover {
-    color: #4692DD; /* Change the text color on hover */
-    background-color: transparent; /* Keep the background transparent */
-}
-
-.navbar .external-link {
-    display: flex;
-    align-items: center;
-}
-
-.navbar .external-link img {
-    width: 30px;
-    height: 30px;
-    margin-right: 10px;
-}
-
-.hamburger-menu {
-    display: none;
-    flex-direction: column;
-    cursor: pointer;
-}
-
-.hamburger-menu span {
-    height: 3px;
-    width: 25px;
-    background: white;
-    margin: 4px 0;
-    transition: 0.4s;
-}
-
+/* Header Container */
 .header-container {
     display: flex;
     width: 100%;
-    background-color:transparent;
+    background-color: transparent;
     color: #212121;
     padding: 20px 0;
     margin-top: 110px; /* Adjust as necessary to not overlap with the navbar */
@@ -112,6 +32,7 @@ body {
     justify-content: center;
     align-items: center;
     padding: 20px;
+    text-align: center;
 }
 
 .header-content h1 {
@@ -158,6 +79,83 @@ body {
     object-fit: cover;
 }
 
+/* Navbar */
+.navbar {
+    width: 100%;
+    background-color: rgba(51, 51, 51, 0); /* Initial background color with 0 opacity */
+    color: #212121;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    transition: background-color 0.4s;
+}
+
+.navbar.scrolled {
+    background-color: #FF9F66;
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+}
+
+.navbar .logo img {
+    width: 100px;
+    height: 90px;
+}
+
+.navbar .nav-links {
+    list-style: none;
+    display: flex;
+    position: relative;
+}
+
+.navbar .nav-links li {
+    margin: 0 10px;
+    position: relative;
+}
+
+.navbar .nav-links li a {
+    color: #fff;
+    text-decoration: none;
+    padding: 5px 10px;
+    transition: color 0.4s;
+}
+
+.navbar .nav-links li a:hover {
+    color: #ffd700;
+    background-color: transparent;
+}
+
+.navbar .external-link {
+    display: flex;
+    align-items: center;
+}
+
+.navbar .external-link img {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+}
+
+.hamburger-menu {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.hamburger-menu span {
+    height: 3px;
+    width: 25px;
+    background: white;
+    margin: 4px 0;
+    transition: 0.4s;
+}
+
+/* Search Container */
 .search-container {
     display: flex;
     justify-content: center;
@@ -187,15 +185,16 @@ body {
     color: #333;
 }
 
+/* Content */
 .content {
     flex: 1;
     padding: 20px;
-    text-align: center; /* Center-align the text */
-    color: grey; /* Change text color to grey */
+    text-align: center;
+    color: grey;
 }
 
 .content-container {
-    background-color: rgba(255, 255, 255, 0.8); /* Light background with some opacity */
+    background-color: rgba(255, 255, 255, 0.8);
     border-radius: 10px;
     padding: 20px;
     max-width: 800px;
@@ -212,7 +211,6 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    
 }
 
 .buttons {
@@ -248,9 +246,10 @@ body {
     border-radius: 10px;
 }
 
+/* Community */
 .community {
     padding: 40px 20px;
-    background-color: rgba(0, 0, 0, 0.5); /* Black background with 50% opacity */
+    background-color: rgba(0, 0, 0, 0.5);
     color: #333;
 }
 
@@ -271,7 +270,7 @@ body {
 }
 
 .community-window {
-    background-color: rgba(255, 255, 255, 0.8); /* Light background with some opacity */
+    background-color: rgba(255, 255, 255, 0.8);
     border-radius: 10px;
     padding: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -312,24 +311,10 @@ body {
     color: #333;
 }
 
-.footer {
-    width: 100%;
-    background-color: #333;
-    color: #fff;
-    text-align: center;
-    padding: 10px 20px;
-    margin-top: auto;
-}
-
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
-
+/* Faculty */
 .faculty {
     padding: 40px 20px;
-    background-color: rgba(255, 255, 255, 0.8); /* Light background with some opacity */
+    background-color: rgba(255, 255, 255, 0.8);
     color: #333;
     text-align: center;
 }
@@ -419,157 +404,188 @@ body {
     font-size: 0.9em;
 }
 
-
-/* Mobile view */
-@media (max-width: 768px) {
-    .navbar .nav-links {
-        display: none;
-        flex-direction: column;
-        background-color: rgba(51, 51, 51, 0.9); /* Semi-transparent background for the dropdown */
-        position: absolute;
-        top: 60px; /* Adjust based on the height of the navbar */
-        right: 20px;
-        width: 200px;
-        padding: 10px;
-        border-radius: 5px;
-    }
-
-    .navbar .nav-links.show {
-        display: flex;
-    }
-
-    .navbar .nav-links li {
-        margin: 10px 0; /* Add margin between the links */
-    }
-
-    .navbar .nav-links li a {
-        display: block;
-        background-color: rgba(255, 255, 255, 0.1); /* Box around the links */
-        padding: 10px;
-        border-radius: 5px;
-        text-align: center;
-    }
-
-    .hamburger-menu {
-        display: flex;
-    }
-
-    .header-container {
-        flex-direction: column;
-    }
-
-    .header-content {
-        padding: 10px;
-    }
-
-    .header-content h1 {
-        font-size: 2em;
-    }
-
-    .header-image {
-        width: 100%;
-        height: auto;
-    }
-
-    .slider {
-        width: 100%;
-        height: auto;
-    }
-
-    #search-input {
-        width: 60%;
-    }
-
-    .section-content {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    .buttons {
-        width: 100%;
-        grid-template-columns: 1fr;
-    }
-
-    .section-image {
-        width: 100%;
-        margin-top: 20px;
-    }
-
-    .community-windows {
-        grid-template-columns: 1fr;
-    }
-
-    .faculty-members {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .faculty-member {
-        flex-basis: 80%;
-        margin: 10px 0;
-    }
+/* Footer */
+.footer {
+    width: 100%;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px 20px;
+    margin-top: auto;
 }
 
-/* Other CSS styles remain unchanged */
-
-.nav-links {
-    list-style: none;
-    display: flex;
-    position: relative;
-}
-
-.nav-links li {
+.footer a {
+    color: #ddd;
+    text-decoration: none;
     margin: 0 10px;
-    position: relative;
+    transition: color 0.3s ease-in-out;
 }
 
-.nav-links li a {
-    color: #fff;
-    text-decoration: none;
-    padding: 5px 10px;
-    transition: color 0.4s;
+.footer a:hover {
+    color: #fff; /* Highlight links on hover */
 }
 
-.nav-links li a:hover {
-    color: #ffd700;
-    background-color: transparent;
+.footer .social-icons {
+    margin-top: 10px;
 }
 
-.nav-links .dropdown {
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    background-color: rgba(51, 51, 51, 0.9);
-    border-radius: 5px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    z-index: 1000;
-    list-style: none;
+.footer .social-icons img {
+    width: 30px;
+    margin: 0 10px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.footer .social-icons img:hover {
+    transform: scale(1.2); /* Slightly enlarge icons on hover */
+}
+
+/* Utility Classes */
+.text-left {
+    text-align: left;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.m-10 {
+    margin: 10px;
+}
+
+.m-20 {
+    margin: 20px;
+}
+
+.mt-10 {
+    margin-top: 10px;
+}
+
+.mt-20 {
+    margin-top: 20px;
+}
+
+.mb-10 {
+    margin-bottom: 10px;
+}
+
+.mb-20 {
+    margin-bottom: 20px;
+}
+
+.p-10 {
     padding: 10px;
 }
 
-.nav-links .dropdown li {
-    margin: 10px 0;
+.p-20 {
+    padding: 20px;
 }
 
-.nav-links .dropdown li a {
-    display: block;
-    color: #fff;
-    text-decoration: none;
-    padding: 10px;
-    background-color: rgba(255, 255, 255, 0.1);
+.pt-10 {
+    padding-top: 10px;
+}
+
+.pt-20 {
+    padding-top: 20px;
+}
+
+.pb-10 {
+    padding-bottom: 10px;
+}
+
+.pb-20 {
+    padding-bottom: 20px;
+}
+
+.rounded {
     border-radius: 5px;
 }
 
-.nav-links .dropdown li a:hover {
-    background-color: rgba(255, 255, 255, 0.2);
+.shadow {
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-.nav-links li:hover .dropdown {
+.d-inline {
+    display: inline;
+}
+
+.d-block {
     display: block;
 }
 
-/* Mobile view */
+.d-flex {
+    display: flex;
+}
+
+.flex-column {
+    flex-direction: column;
+}
+
+.flex-row {
+    flex-direction: row;
+}
+
+.flex-center {
+    justify-content: center;
+    align-items: center;
+}
+
+.bg-primary {
+    background-color: #007bff;
+    color: #fff; /* Ensure text is readable on dark background */
+}
+
+.bg-secondary {
+    background-color: #6c757d;
+    color: #fff; /* Ensure text is readable on dark background */
+}
+
+.bg-success {
+    background-color: #28a745;
+    color: #fff; /* Ensure text is readable on dark background */
+}
+
+.bg-danger {
+    background-color: #dc3545;
+    color: #fff; /* Ensure text is readable on dark background */
+}
+
+.bg-warning {
+    background-color: #ffc107;
+    color: #333; /* Adjust text color for readability */
+}
+
+.bg-info {
+    background-color: #17a2b8;
+    color: #fff; /* Ensure text is readable on dark background */
+}
+
+.bg-light {
+    background-color: #f8f9fa;
+    color: #333; /* Ensure text is readable on light background */
+}
+
+.bg-dark {
+    background-color: #343a40;
+    color: #fff; /* Ensure text is readable on dark background */
+}
+
+.border {
+    border: 1px solid #ccc;
+}
+
+.border-top {
+    border-top: 1px solid #ccc;
+}
+
+.border-bottom {
+    border-bottom: 1px solid #ccc;
+}
+
+/* Media Queries for Mobile */
 @media (max-width: 768px) {
     .navbar .nav-links {
         display: none;
