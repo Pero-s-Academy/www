@@ -1,4 +1,9 @@
-// Placeholder for navigation bar functionality
 function toggleNav() {
-    // Implement toggle logic for responsive navigation
+    const navLinks = document.querySelector('.nav-links');
+    navLinks.classList.toggle('active');
 }
+
+document.addEventListener("DOMContentLoaded", function() {
+    const hamburgerMenu = document.getElementById('hamburger-menu');
+    hamburgerMenu.addEventListener('click', toggleNav);
+});
