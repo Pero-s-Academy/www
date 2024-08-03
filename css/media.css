@@ -1,0 +1,28 @@
+img, video, iframe {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.slider img {
+    border-radius: 10px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.slider img:hover {
+    transform: scale(1.02); /* Slight zoom on hover */
+}
+
+.header-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+@media (max-width: 768px) {
+    .slider img, .header-image img {
+        width: 100%;
+        height: auto;
+    }
+}
